@@ -36,6 +36,9 @@ public class App
         results.sort(new Comparator<Result>() {
             @Override
             public int compare(Result o1, Result o2) {
+                if (o1.stkcd.equals(o2.stkcd)) {
+                    return o1.accper.compareTo(o2.accper);
+                }
                 return o1.stkcd.compareTo(o2.stkcd);
             }
         });
@@ -43,6 +46,5 @@ public class App
         System.out.println("开始导出");
         OutputToExcel.writeToFile(results);
 
-        System.out.println( "Hello World!" );
     }
 }
